@@ -1,0 +1,10 @@
+{
+  "name": "Behat tests for http://openglaze.io",
+  "description": "Functional testing for http://openglaze.io site.",
+  "require": {
+    "drupal/drupal-extension": "~3.0"
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+}
