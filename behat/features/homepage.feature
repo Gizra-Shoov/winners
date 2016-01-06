@@ -8,3 +8,9 @@ Feature: Homepage
     Given I am an anonymous user
     When  I visit the homepage
     Then  I should have access to the page
+
+  @api
+  Scenario: Open homepage for a david user
+    Given I login with user
+    When  I should see "ברוך הבא david"
+    Then  I can logout

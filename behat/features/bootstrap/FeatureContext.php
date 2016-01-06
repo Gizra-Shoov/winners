@@ -35,4 +35,84 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   public function iShouldNotHaveAccessToThePage() {
     $this->assertSession()->statusCodeEquals('403');
   }
+
+  /**
+   * @Given I am admin
+   */
+  public function iAmAdmin() {
+    $this->loginUser('admin', 'admin');
+  }
+
+  /**
+   * @Given /^I click on the element with css "([^"]*)"$/
+   */
+  public function iClickOnTheElementWithCss($css_path) {
+    if (!$element = $this->getSession()->getPage()->find('css', $css_path)) {
+      throw new \Exception(sprintf('The element "%s" not found.', $css_path));
+    }
+    $element->click();
+  }
+
+  /**
+   * Login a user to the site.
+   *
+   * @param $name
+   *   The user name.
+   * @param $password
+   *   The use password.
+   *
+   * @throws \Behat\Mink\Exception\ElementNotFoundException
+   * @throws \Exception
+   */
+  private function _login($name, $password) {
+    $this->getSession()->visit($this->locatePath('/#/login'));
+    $element = $this->getSession()->getPage();
+    // Add username
+    $username = $element->find('css', '#edit-name');
+    $username->setValue($name);
+    // Add password
+    $password_element = $element->find('css', '#edit-pass');
+    $password_element->setValue($password);
+    // Click to submit the login form
+    $this->iClickOnTheElementWithCss('#edit-submit');
+  }
+
+  /**
+   * Login a user to the site.
+   *
+   * @param $name
+   *   The user name.
+   * @param $password
+   *   The use password.
+   *
+   * @throws \Behat\Mink\Exception\ElementNotFoundException
+   * @throws \Exception
+   */
+  protected function loginUser($name, $password) {
+    $this->_login($name, $password);
+  }
+
+  /**
+   * @Given I login with user :username password :password
+   *
+   * @param $username
+   * @param $password
+   */
+  public function iLoginWithUserPassword($username, $password) {
+    $this->loginUser($username, $password);
+  }
+
+  /**
+   * @Given I login with user
+   */
+  public function iLoginWithUser() {
+    $this->iLoginWithUserPassword('david','1234');
+  }
+
+  /**
+   * @Then I can logout
+   */
+  public function iCanLogout() {
+    $this->iClickOnTheElementWithCss('.pane-user-menu .pane-content a:nth-child(2)');
+  }
 }
