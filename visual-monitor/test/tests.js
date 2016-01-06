@@ -44,7 +44,7 @@ var caps = selectedCaps ? capsConfig[selectedCaps] : undefined;
 var providerPrefix = process.env.PROVIDER_PREFIX ? process.env.PROVIDER_PREFIX + '-' : '';
 var testName = selectedCaps ? providerPrefix + selectedCaps : providerPrefix + 'default';
 
-var baseUrl = process.env.BASE_URL ? process.env.BASE_URL : 'http://openglaze.io';
+var baseUrl = process.env.BASE_URL ? process.env.BASE_URL : 'http://winners-auctions.com';
 
 var resultsCallback = process.env.DEBUG ? console.log : shoovWebdrivercss.processResults;
 
