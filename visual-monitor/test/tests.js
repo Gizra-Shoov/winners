@@ -1,6 +1,7 @@
 'use strict';
 
 var shoovWebdrivercss = require('shoov-webdrivercss');
+var projectName = 'winners';
 
 // This can be executed by passing the environment argument like this:
 // PROVIDER_PREFIX=browserstack SELECTED_CAPS=chrome mocha
@@ -9,6 +10,7 @@ var shoovWebdrivercss = require('shoov-webdrivercss');
 
 var capsConfig = {
   'chrome': {
+    project: projectName,
     'browser' : 'Chrome',
     'browser_version' : '42.0',
     'os' : 'OS X',
@@ -16,6 +18,7 @@ var capsConfig = {
     'resolution' : '1024x768'
   },
   'ie11': {
+    project: projectName,
     'browser' : 'IE',
     'browser_version' : '11.0',
     'os' : 'Windows',
@@ -63,8 +66,22 @@ describe('Visual monitor testing', function() {
       .url(baseUrl)
       .webdrivercss(testName + '.homepage', {
         name: '1',
-        exclude: [],
-        remove: [],
+        exclude:
+          [
+            // Article.
+            '#main-content img',
+            //
+            '',
+          ],
+        remove:
+          [
+            // Carousel.
+            '#rev_slider_3_1 ul',
+            // Article.
+            '.textwidget p',
+            '.textwidget h4',
+            '.field-content a:first-child'
+          ],
         hide: [],
         screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
       }, resultsCallback)
