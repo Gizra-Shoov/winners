@@ -87,4 +87,54 @@ describe('Visual monitor testing', function() {
       }, resultsCallback)
       .call(done);
   });
+
+  it('should show the about page',function(done) {
+    client
+      .url(baseUrl + '/אודות')
+      .webdrivercss(testName + '.about', {
+        name: '1',
+        exclude: [],
+        remove: [],
+        hide: [],
+        screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
+      }, resultsCallback)
+      .call(done);
+  });
+
+  it('should show the archive-sales page',function(done) {
+    client
+      .url(baseUrl + '/ארכיון-מכירות')
+      .webdrivercss(testName + '.archive-sales', {
+        name: '1',
+        exclude:
+          [
+            // Product.
+            '.view-sales-archive img',
+          ],
+        remove:
+          [
+            // Product.
+            '.view-sales-archive .views-field-title-field',
+            '.view-sales-archive .views-field-field-live-auction-date',
+            '.view-sales-archive .views-field-field-subtitle',
+            '.view-sales-archive .sale-files',
+          ],
+        hide: [],
+        screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
+      }, resultsCallback)
+      .call(done);
+  });
+
+  it('should show the contact page',function(done) {
+    client
+      .url(baseUrl + '/צור-קשר')
+      .webdrivercss(testName + '.contact', {
+        name: '1',
+        exclude: [],
+        remove: [],
+        hide: [],
+        screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
+      }, resultsCallback)
+      .call(done);
+  });
 });
