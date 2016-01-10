@@ -1,7 +1,7 @@
 default:
   extensions:
     Behat\MinkExtension:
-      base_url: "http://openglaze.io"
+      base_url: "http://winners-auctions.com"
 
       ## Selenium integration
       # selenium2:
