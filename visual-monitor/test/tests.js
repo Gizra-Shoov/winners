@@ -71,8 +71,6 @@ describe('Visual monitor testing', function() {
           [
             // Article.
             '#main-content img',
-            //
-            '',
           ],
         remove:
           [
