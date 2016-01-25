@@ -79,7 +79,8 @@ describe('Visual monitor testing', function() {
             // Article.
             '.textwidget p',
             '.textwidget h4',
-            '.field-content a:first-child'
+            '.field-content a:first-child',
+            '.region-live-message',
           ],
         hide: [],
         screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
@@ -117,7 +118,6 @@ describe('Visual monitor testing', function() {
             '.view-sales-archive .views-field-field-live-auction-date',
             '.view-sales-archive .views-field-field-subtitle',
             '.view-sales-archive .sale-files',
-            '#block-block-2',
           ],
         hide: [],
         screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
