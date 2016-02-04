@@ -75,7 +75,7 @@ describe('Visual monitor testing', function() {
         remove:
           [
             // Carousel.
-            '#rev_slider_3_1 ul',
+            '#md-slider-3-block img',
             // Article.
             '.textwidget p',
             '.textwidget h4',
