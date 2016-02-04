@@ -83,7 +83,10 @@ describe('Visual monitor testing', function() {
             '.field-content a:first-child',
             '.region-live-message',
           ],
-        hide: [],
+        hide:
+          [
+            '.footer h2'
+          ],
         screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
       }, resultsCallback)
       .call(done);
