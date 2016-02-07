@@ -5,5 +5,6 @@ Feature: Access to admin
 
   @api
   Scenario: Open homepage and access to the admin
-    Given I login with user
+    Given I visit the homepage
+    When  I login with user "david" password "1234"
     Then  I should have access to the page

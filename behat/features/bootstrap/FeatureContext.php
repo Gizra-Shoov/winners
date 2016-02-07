@@ -65,7 +65,6 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    * @throws \Exception
    */
   private function _login($name, $password) {
-    $this->getSession()->visit($this->locatePath('/#/login'));
     $element = $this->getSession()->getPage();
     // Add username
     $username = $element->find('css', '#edit-name');
@@ -103,16 +102,9 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   }
 
   /**
-   * @Given I login with user
+   * @When I am visit :arg1
    */
-  public function iLoginWithUser() {
-    $this->iLoginWithUserPassword('david','1234');
-  }
-
-  /**
-   * @Then I can logout
-   */
-  public function iCanLogout() {
-    $this->iClickOnTheElementWithCss('.pane-user-menu .pane-content a:nth-child(2)');
+  public function iAmVisit($url) {
+    $this->getSession()->visit($url);
   }
 }
