@@ -82,6 +82,8 @@ describe('Visual monitor testing', function() {
             '.textwidget h4',
             '.field-content a:first-child',
             '.region-live-message',
+            // Facebook
+            'footer #node-6511 p'
           ],
         hide:
           [
