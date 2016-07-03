@@ -87,7 +87,8 @@ describe('Visual monitor testing', function() {
           ],
         hide:
           [
-            '.footer h2'
+            '.footer h2',
+            '#block-block-3 .rtecenter a span'
           ],
         screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
       }, resultsCallback)
