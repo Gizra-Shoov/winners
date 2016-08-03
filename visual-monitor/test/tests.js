@@ -64,7 +64,6 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
-      .pause(5001)
       .webdrivercss(testName + '.homepage', {
         name: '1',
         exclude:
@@ -88,7 +87,9 @@ describe('Visual monitor testing', function() {
         hide:
           [
             '.footer h2',
-            '#block-block-3 .rtecenter a span'
+            '#block-block-3 .rtecenter a span',
+            '.front-page-header',
+            '.pane-title'
           ],
         screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
       }, resultsCallback)
